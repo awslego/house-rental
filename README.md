@@ -1,41 +1,40 @@
-# house-rental
-# Deploying an Ethereum Decentralized Application on AWS using AWS Blockchain Templates
-This is a simple 30-minute hands-on tutorial on how to write a details of a lease agreement smart contract on a Private Ethereum blockchain on Amazon Web Services.
+# 'House Rental' dApp 
+이더리움 dApp개발을 위한 truffle 튜토리얼 중 pet-shop을 기반으로 로컬 개발환경에서 Smart Contract 개발, 컨트랙트 테스트를 한뒤, 
+운영 환경인 AWS에 마이그레이션하는 실습입니다.
 
-Follow the steps below to download, install and run this project.
+작업 순서 요약 : 
 
-## Part 1: Overview of Blockchain, Ethereum, Smart Contracts and dApp Demo
-This document will cover the following
-- Setting up the development environment
-- Creating a Truffle project using a Truffle Box
-- Writing the smart contract
-- Compiling and migrating the smart contract
-- Testing the smart contract
-- Creating a user interface to interact with the smart contract
-- Interacting with the dapp in a browser
+1. 개발 환경 설정 및 Truffle Scaffolding
+2. Smart Contract 작성/ 컴파일 및 배포 / 유닛테스트
+3. Smart Contract와 상호 작용하는 유저 인터페이스 만들기
+4. 브라우저에서 dApp과 상호 작용
+5. (옵션) AWS Blockchain Template을 이용한 프라이빗 네트워크 구축하기 
+6. (옵션) AWS에 배포하기
 
-## Part 2: Setting up the development environment
-Install these prerequisites to follow along.
+
+## Part 1: 개발 환경 설정
+### 1.1. Install the prerequisites
+
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
 - Ganache: http://truffleframework.com/ganache/
-- IDE: Visual Studio Code
-- (Optional) Syntax Highlighting for your IDE: Solidity for VS Code
+- IDE: (eg. Intelij, Eclipse, WinStorm, Visual Studio etc.)
+- (Optional) Syntax Highlighting for your IDE: Solidity 
 - Metamask: https://metamask.io/
 
-## Part 3: Create Project and Scaffolding
-### 3.1. Create Project Directory
+
+### 1.2. Create Project Directory
 ```
-$ mkdir lease-property
-$ cd lease-property
+$ mkdir house-rental
+$ cd house-rental
 ```
 
-### 3.2. Create Scaffolding
+### 1.3. Create Scaffolding
 ```
 $ truffle unbox pet-shop
 ```
 
-You should see output similar to the following:
+✔︎ 다음과 같은 결과가 출력됩니다.
 ```
 Downloading...
 Unpacking...
@@ -50,8 +49,8 @@ Commands:
   Run dev server: npm run dev
 ```
 
-### 3.3.(Optional) Remove files not needed
-Remove images
+### 1.4.(Optional) Remove files not needed
+아래 이미지를 삭제합니다. (미사용)
 ```
 $ rm box-img-lg.png
 $ rm box-img-sm.png
@@ -62,19 +61,19 @@ $ rm src/images/boxer.jpeg
 $ rm src/pets.json
 ```
 
-Remove index.thml and app.js because we will replace these later
+index.html과 app.js도 삭제합니다. (나중에 다른 내용으로 대체)
 ```
 $ rm src/index.html
 $ rm src/js/app.js
 ```
 
-## Part 4: Write, Compile and Migrate the Smart Contract
-### 4.1. Create a new Contract File
+## Part 2: Smart Contract 생성 / 컴파일 및 배포 / 테스트
+### 2.1. Smart Contract 작성하기
 ```
 $ vi contracts/LeaseProperty.sol
 ```
 
-Replace code with this:
+코드를 아래와 같이 수정하세요.
 ```solidity
 pragma solidity ^0.4.24;
 
@@ -96,24 +95,24 @@ contract LeaseProperty {
 }
 ```
 
-### 4.2. Let's compile our Application
+### 2.2. Smart Contract 컴파일
 ```
 $ truffle compile
 ```
 
-You should see output similar to the following:
+✔︎ 다음과 같은 결과가 출력됩니다.
 ```
 Compiling ./contracts/LeaseProperty.sol...
 Compiling ./contracts/Migrations.sol...
 Writing artifacts to ./build/contracts
 ```
 
-### 4.3. Create New Migrations File
+### 2.3. 마이그레이션 코드 작성하기
 ```
 $ vi migrations/2_deploy_contracts.js
 ```
 
-Replace code with this
+코드를 아래와 같이 수정하세요.
 ```javascript
 var LeaseProperty = artifacts.require("./LeaseProperty.sol");
 
@@ -121,15 +120,21 @@ module.exports = function(deployer) {
   deployer.deploy(LeaseProperty);
 };
 ```
+> Migrations/ 폴더에 default로 1_initial_migration.js 파일이 존재합니다. 
+> 이 파일은 Migrations.sol 컨트랙트의 배포를 관리하며, 변경되지 않은 컨트랙트를 이중 마이그레이션하지 않도록 보장합니다. 
 
-### 4.4. Before we can migrate our contract to the blockchain, we need to have a blockchain running. For this tutorial, we're going to use Ganache, a personal blockchain for Ethereum development you can use to deploy contracts, develop applications, and run tests
+### 2.4. Run Ganache for the development environment
 
-### 4.5. We can now migrate the contract to our local blockchain
+Smart Contract를 블록체인에 마이그레이션(배포)하기 전에 먼저 블록체인을 실행해야합니다. 
+여기서는 개발 환경으로 Ganache (TestRPC)를 사용합니다.
+
+### 2.5. Smart Contract 마이그레이션 (Ganache)
 ```
 $ truffle migrate --network development
 ```
+> truffle.js파일에서 networks에 'development' 정보를 읽어 로컬 Ganache에 연결됩니다.
 
-You should see output similar to the following:
+✔︎ 다음과 같은 결과가 출력됩니다.
 ```
 Using network 'development'.
 
@@ -149,15 +154,18 @@ Saving successful migration to network...
 Saving artifacts...
 ```
 
-### 4.6. In Ganache, note that the state of the blockchain has changed. The blockchain now shows that the current block, previously 0, is now 4. In addition, while the first account originally had 100 ether, it is now lower, due to the transaction costs of migration
+### 2.6. In Ganache, note that the state of the blockchain has changed.
+ 
+Ganache를 통해 블록체인의 상태가 변경된 것을 확인합니다. 
+현재 블록이 이전에 0이었는데 블록이 4로 변경된 되고, 첫 번째 계정의 원래 100 ETH였지만 마이그레이션하는 데 드는 트랜잭션 비용으로 인해 이제는 더 낮아졌습니다.
+![Alt text](ganache_setting.png)
 
-## Part 5: Testing the smart contract
-### 5.1. Create New Tests File
+### 2.7. Create New Tests File
 ```
 $ vi test/TestLeaseProperty.sol
 ```
 
-Replace code with this
+코드를 아래와 같이 수정하세요.
 ```solidity
 pragma solidity ^0.4.24;
 
@@ -193,12 +201,12 @@ contract TestLeaseProperty {
     }
 }
 ```
-### 5.2. Run the tests
+### 2.8. Run the tests
 ```
 $ truffle test
 ```
 
-If all the tests pass, you'll see console output similar to this:
+✔︎ 만일 모든 테스트가 통과되면, 다음과 같은 결과가 출력됩니다.
 ```
 Using network 'development'.
 
@@ -217,18 +225,13 @@ Compiling truffle/DeployedAddresses.sol...
   3 passing (1s)
 ```
 
-## Part 6: Let's create a user interface to interact with the smart contract
-### 6.1. Modify the app.js file, 
+## Part 3: Smart Contract와 상호 작용하는 사용자 인터페이스 만들기
+### 3.1. Modify the app.js file, 
 ```
 $ vi src/js/app.js
 ```
 
-Replace contents with code below to
-- Instantiate web3, 
-- Instantiate the contract, 
-- Get The Leased Properties and Update The UI,
-- Handle the lease() function
-
+코드를 아래와 같이 수정하세요.
 ```javascript
 App = {
   web3Provider: null,
@@ -339,13 +342,18 @@ $(function() {
   });
 });
 ```
+> - app.js에서 포함된 내용
+>  - web3 인스턴스 정의
+>  - contract 인스턴스 정의
+>  - Properties.json에서 House 정보를 읽어 UI 업데이트
+>  - lease() 함수 처리
 
-### 6.2. Modify the index.html file
+### 3.2. Modify the index.html file
 ```
 $ vi src/index.html
 ```
 
-Replace code this this:
+코드를 아래와 같이 수정하세요.
 
 ```html
 <!DOCTYPE html>
@@ -371,7 +379,7 @@ Replace code this this:
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
-          <h1 class="text-center">Properties For Lease</h1>
+          <h1 class="text-center">House Rental Lists</h1>
           <hr/>
           <br/>
         </div>
@@ -411,21 +419,20 @@ Replace code this this:
 </html>
 ```
 
-### 6.3.Copy images of houses in this directory ~/src/images/
 
-### 6.5 Create properties.json file
+### 3.3 Create properties.json file
 ```
 $ vi src/properties.json
 ```
 
-Replace code this this:
+코드를 아래와 같이 수정하세요.
 
 ```json
 [
   {
     "id": 0,
     "amount": "$750 per week",
-    "picture": "images/house-00.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-00.jpeg",
     "bedrooms": 3,
     "address": "1 Park Blvd",
     "location": "Lisco, Alabama"
@@ -433,7 +440,7 @@ Replace code this this:
   {
     "id": 1,
     "amount": "$650 per week",
-    "picture": "images/house-01.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-01.jpeg",
     "bedrooms": 3,
     "address": "2 W Ash St ",
     "location": "Tooleville, West Virginia"
@@ -441,7 +448,7 @@ Replace code this this:
   {
     "id": 2,
     "amount": "$1250 per week",
-    "picture": "images/house-02.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-02.jpeg",
     "bedrooms": 2,
     "address": "3 Broadway Ave",
     "location": "Freeburn, Idaho"
@@ -449,7 +456,7 @@ Replace code this this:
   {
     "id": 3,
     "amount": "$800 per week",
-    "picture": "images/house-03.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-03.jpeg",
     "bedrooms": 2,
     "address": "4 Market St",
     "location": "Camas, Pennsylvania"
@@ -457,7 +464,7 @@ Replace code this this:
   {
     "id": 4,
     "amount": "$900 per week",
-    "picture": "images/house-04.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-04.jpeg",
     "bedrooms": 2,
     "address": "5 Cedar Rd",
     "location": "Gerber, South Dakota"
@@ -465,7 +472,7 @@ Replace code this this:
   {
     "id": 5,
     "amount": "$1100 per week",
-    "picture": "images/house-05.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-05.jpeg",
     "bedrooms": 3,
     "address": "6 Elm St",
     "location": "Innsbrook, Illinois"
@@ -473,7 +480,7 @@ Replace code this this:
   {
     "id": 6,
     "amount": "$680 per week",
-    "picture": "images/house-06.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-06.jpeg",
     "bedrooms": 3,
     "address": "7 Island Ave",
     "location": "Soudan, Louisiana"
@@ -481,7 +488,7 @@ Replace code this this:
   {
     "id": 7,
     "amount": "$700 per week",
-    "picture": "images/house-07.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-07.jpeg",
     "bedrooms": 3,
     "address": "8 Imperial Ave",
     "location": "Jacksonwald, Palau"
@@ -489,7 +496,7 @@ Replace code this this:
   {
     "id": 8,
     "amount": "$850 per week",
-    "picture": "images/house-08.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-08.jpeg",
     "bedrooms": 2,
     "address": "9 National St",
     "location": "Honolulu, Hawaii"
@@ -497,7 +504,7 @@ Replace code this this:
   {
     "id": 9,
     "amount": "$1120 per week",
-    "picture": "images/house-09.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-09.jpeg",
     "bedrooms": 3,
     "address": "10 Commercial Rd",
     "location": "Matheny, Utah"
@@ -505,7 +512,7 @@ Replace code this this:
   {
     "id": 10,
     "amount": "$900 per week",
-    "picture": "images/house-10.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-10.jpeg",
     "bedrooms": 2,
     "address": "11 Harrison Rd",
     "location": "Tyhee, Indiana"
@@ -513,7 +520,7 @@ Replace code this this:
   {
     "id": 11,
     "amount": "$770 per week",
-    "picture": "images/house-11.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-11.jpeg",
     "bedrooms": 3,
     "address": "12 Jullian St",
     "location": "Windsor, Montana"
@@ -521,7 +528,7 @@ Replace code this this:
   {
     "id": 12,
     "amount": "$1300 per week",
-    "picture": "images/house-12.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-12.jpeg",
     "bedrooms": 3,
     "address": "13 Irving Ave",
     "location": "Kingstowne, Nevada"
@@ -529,7 +536,7 @@ Replace code this this:
   {
     "id": 13,
     "amount": "$450 per week",
-    "picture": "images/house-13.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-13.jpeg",
     "bedrooms": 4,
     "address": "14 Valley Rd",
     "location": "Sultana, Massachusetts"
@@ -537,7 +544,7 @@ Replace code this this:
   {
     "id": 14,
     "amount": "$1000 per week",
-    "picture": "images/house-14.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-14.jpeg",
     "bedrooms": 2,
     "address": "15 Clay St",
     "location": "Broadlands, Oregon"
@@ -545,7 +552,7 @@ Replace code this this:
   {
     "id": 15,
     "amount": "$900 per week",
-    "picture": "images/house-15.jpeg",
+    "picture": "https://s3.ap-northeast-2.amazonaws.com/dapp-lease-house/images/house-15.jpeg",
     "bedrooms": 2,
     "address": "16 Franklin Ave",
     "location": "Dawn, Wisconsin"
@@ -553,29 +560,29 @@ Replace code this this:
 ]
 ```
 
-## Part 7: Interact with the dapp in a browser
-### 7.1. Install and configure MetaMask
-- Install MetaMask in your browser. https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en
-- Once installed, you'll see the MetaMask fox icon next to your address bar.
-- Click Accept to accept the Privacy Notice.
-- Then you'll see the Terms of Use. Read them, scrolling to the bottom, and then click Accept there too.
-- Now you'll see the initial MetaMask screen. Click Import Existing DEN.
-- In the box marked Wallet Seed, enter the mnemonic that is displayed in Ganache.
-- Now we need to connect MetaMask to the blockchain created by Ganache. Click the menu that shows "Main Network" and select Custom RPC.
-- In the box titled "New RPC URL" enter http://127.0.0.1:7545 and click Save.
-- Click the left-pointing arrow next to "Settings" to close out of the page and return to the Accounts page.
+## Part 4: 브라우저에서 dapp과 상호 작용
+### 4.1. MetaMask 설치 및 세팅
+- 브라우저에 MetaMask를 설치합니다. https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en
+- 일단 설치가 완료되면, 주소 표시줄 옆에 MetaMask fox 아이콘을 볼수 있습니다.
+- Privacy Notice를 수락하기위해서 'Accept' 버튼을 클릭합니다.
+- 그러면 사용조건(Term of Use)가 나타나며, 읽은 다음 밑으로 스크롤링 하고 역시 'Accept'를 클릭합니다.
+- 이제 초기 MetaMask 화면이 나타나면 'Import Existing DEN'을 클릭합니다. 아래에 비밀번호를 입력하고 'OK'를 클릭합니다.
+- 이제 MetaMask를 Ganache가 만든 블록체인에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
+- 'New RPC URL'상자에 http://127.0.0.1:7545를 입력하고 'Save'을 클릭합니다.
+- 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
+![Alt text](metamask_setting.png)
 
-### 7.2. Installing and configuring lite-server
+### 4.2. Installing and configuring lite-server
 
-## Part 8: Let's run our dapp
-- Start the local web server:
+## Part 5: Let's run our dapp
+로컬 웹 서버를 시작합니다.
 ```
 $ npm run dev
 ```
-- The dev server will launch and automatically open a new browser tab containing your dapp.
-- To use the dapp, click the Lease button on the property of your choice.
-- You'll be automatically prompted to approve the transaction by MetaMask. Click Submit to approve the transaction.
-- You'll see the button next to the leased property change to say "Success" and become disabled, just as we specified, because the property has now been leased.
+- dev 서버가 실행되고 dapp이 포함 된 새 브라우저 탭이 자동으로 열립니다.
+- dapp을 사용하기 위해 원하는 Lease 버튼을 클릭하세요.
+- MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
+- Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
 
 ## Part 9: We're now ready to deploy to AWS
 ### 9.1. AWS Blockchain Template Prerequisites
@@ -605,11 +612,11 @@ npm install truffle-hdwallet-provider-privkey
 $ vi truffle.js
 ```
 
-Replace code with this
+코드를 아래와 같이 수정하세요.
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-privkey");
-var mnemonic = "outdoor father modify...";
-const privateKeys = ["afd21..."]; // private keys
+var mnemonic = "right limb chimney safe slam fan proof swim solar someone bottom winner";
+const privateKeys = ["446fbba87648ed7cbfb410e1fdc97ceb8a79b8f69e5094a1befd9b248cdc9175"]; // private keys
 
 module.exports = {
   networks: {
@@ -620,9 +627,9 @@ module.exports = {
     },
     awsNetwork: {
       provider: () => {
-        return new HDWalletProvider(privateKeys, "http://internal-MyFir-LoadB-1ST6DYDCSRRUF-907719992.us-east-1.elb.amazonaws.com")
+        return new HDWalletProvider(privateKeys, "http://18.237.175.220:8545")
       },
-      port: 8545,
+      gas: 3000000,
       network_id: 1234
     }
   }

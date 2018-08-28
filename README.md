@@ -567,7 +567,7 @@ $ vi src/properties.json
 - 이제 초기 MetaMask 화면이 나타나면 'Import Existing DEN'을 클릭합니다. 아래에 Ganache의 Mnemonic과 비밀번호를 입력하고 'OK'를 클릭합니다.
 ![Alt text](metamask_setting.png)
 
-- 이제 MetaMask를 Ganache가 만든 블록체인에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
+- MetaMask를 Ganache에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
 - 'New RPC URL'상자에 http://127.0.0.1:7545를 입력하고 'Save'을 클릭합니다.
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
 ![Alt text](metamask_setting2.png)

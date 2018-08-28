@@ -1,6 +1,5 @@
 const HDWalletProvider = require("truffle-hdwallet-provider-privkey");
-var mnemonic = "right limb chimney safe slam fan proof swim solar someone bottom winner";
-const privateKeys = ["63346cd6e6a6fc5acf5a5d3d7efe0b51160f7fdee06c567c8e50f52c61bbac38"]; // private keys
+const privateKeys = ["afd2168f63635b5235cc8b4d69730faa4ffbea5cfcfab7b7d7625f91656e7d9f"]; // private keys
 
 module.exports = {
     networks: {
@@ -11,10 +10,10 @@ module.exports = {
         },
         awsNetwork: {
             provider: () => {
-                return new HDWalletProvider(privateKeys, "http://127.0.0.1")
+                return new HDWalletProvider(privateKeys, "http://52.24.70.179:8082/private-ethereum-prd")
             },
-            port: 8545,
-            network_id: 1234
+            network_id: 1500,
+            gas: 300000
         }
     }
 };

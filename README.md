@@ -661,8 +661,8 @@ Saving artifacts...
 
 
 ### 5.7 MetaMask에서 AWS Blockchain의 계정 Import
--  MetaMask 화면에서 우측 상단 메뉴에서 'Import Account'을 클릭합니다. 
--  PrivateKey를 입력하는 상자에 "afd2168f63635b5235cc8b4d69730faa4ffbea5cfcfab7b7d7625f91656e7d9fd"를 입력하고 'Import'를 클릭합니다.
+- MetaMask 화면에서 우측 상단 메뉴에서 'Import Account'을 클릭합니다. 
+- PrivateKey를 입력하는 상자에 "afd2168f63635b5235cc8b4d69730faa4ffbea5cfcfab7b7d7625f91656e7d9fd"를 입력하고 'Import'를 클릭합니다.
 - MetaMask를 AWS Blockchain에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
 - 'New RPC URL'상자에 "http://52.24.70.179:8082/private-ethereum-prd" 를 입력하고 'Save'를 클릭합니다.
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.

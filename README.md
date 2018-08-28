@@ -155,7 +155,7 @@ Saving artifacts...
  
 Ganache를 통해 블록체인의 상태가 변경된 것을 확인합니다. 
 현재 블록이 이전에 0이었는데 블록이 4로 변경된 되고, 첫 번째 계정의 원래 100 ETH였지만 마이그레이션하는 데 드는 트랜잭션 비용으로 인해 이제는 더 낮아졌습니다.
-![Alt text](ganache_setting.png)
+![Alt text](img/ganache_setting.png)
 
 ### 2.7. Tests용 신규 파일 생성하기
 ```
@@ -562,12 +562,12 @@ $ vi src/properties.json
 - Privacy Notice를 수락하기 위해서 'Accept' 버튼을 클릭합니다.
 - 그러면 사용조건(Term of Use)가 나타나며, 읽은 다음 밑으로 스크롤링 하고 역시 'Accept'를 클릭합니다.
 - 이제 초기 MetaMask 화면이 나타나면 'Import Existing DEN'을 클릭합니다. 아래에 Ganache의 Mnemonic과 비밀번호를 입력하고 'OK'를 클릭합니다.
-![Alt text](metamask_setting.png)
+![Alt text](img/metamask_setting.png)
 
 - MetaMask를 Ganache에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
 - 'New RPC URL'상자에 http://127.0.0.1:7545를 입력하고 'Save'을 클릭합니다.
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
-![Alt text](metamask_setting2.png)
+![Alt text](img/metamask_setting2.png)
 
 ### 4.2. dApp 구동하기
 로컬 웹 서버를 시작합니다.
@@ -664,9 +664,9 @@ Saving artifacts...
 - MetaMask를 AWS Blockchain에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
 - 'New RPC URL'상자에 "http://52.24.70.179:8082/private-ethereum-prd" 를 입력하고 'Save'를 클릭합니다.
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
-![Alt text](metamask_prd_setting.png)
+![Alt text](img/metamask_prd_setting.png)
 
 서비스 화면에서 'Lease'버튼을 클릭해봅니다.
-![Alt text](house-rental-prd.png)
+![Alt text](img/house-rental-prd.png)
 
 ## And we're all done!

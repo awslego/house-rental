@@ -632,7 +632,7 @@ module.exports = {
 };
 ```
 
-### 5.5. Smart Contract AWS에 마이그레이션하기 (운영환경)
+### 5.5. Smart Contract를 AWS Blockchain에 마이그레이션하기 (운영환경)
 ```
 $ truffle migrate --network awsNetwork
 ```
@@ -654,5 +654,19 @@ Running migration: 2_deploy_contracts.js
   LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
 Saving artifacts...
 ```
+> AWS Blockchain (운영환경)에 Smart Contract 배포가 완료되었습니다.
 
-## And we're done!
+### 5.6 House Rental 서비스 접속하기 
+다음 링크를 클릭하세요. https://52.24.70.179:8082
+
+
+### 5.7 MetaMask에서 AWS Blockchain의 계정 Import
+-  MetaMask 화면에서 우측 상단 메뉴에서 'Import Account'을 클릭합니다. 
+-  PrivateKey를 입력하는 상자에 아래에 Ganache의 Mnemonic과 비밀번호를 입력하고 'OK'를 클릭합니다.
+- MetaMask를 AWS Blockchain에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
+- 'New RPC URL'상자에 "afd2168f63635b5235cc8b4d69730faa4ffbea5cfcfab7b7d7625f91656e7d9fd"를 입력하고 'Import'를 클릭합니다.
+- 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
+![Alt text](metamask_prd_setting.png)
+
+## 서비스 화면에서 'Lease'버튼을 클릭해봅니다.
+## And we're all done!

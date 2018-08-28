@@ -561,14 +561,16 @@ $ vi src/properties.json
 ### 4.1. MetaMask 설치 및 세팅하기
 - 브라우저에 MetaMask를 설치합니다. https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en
 - 일단 설치가 완료되면, 주소 표시줄 옆에 MetaMask fox 아이콘을 볼수 있습니다.
-- Privacy Notice를 수락하기위해서 'Accept' 버튼을 클릭합니다.
+
+- Privacy Notice를 수락하기 위해서 'Accept' 버튼을 클릭합니다.
 - 그러면 사용조건(Term of Use)가 나타나며, 읽은 다음 밑으로 스크롤링 하고 역시 'Accept'를 클릭합니다.
-- 이제 초기 MetaMask 화면이 나타나면 'Import Existing DEN'을 클릭합니다. 아래에 비밀번호를 입력하고 'OK'를 클릭합니다.
+- 이제 초기 MetaMask 화면이 나타나면 'Import Existing DEN'을 클릭합니다. 아래에 Ganache의 Mnemonic과 비밀번호를 입력하고 'OK'를 클릭합니다.
+![Alt text](metamask_setting.png)
+
 - 이제 MetaMask를 Ganache가 만든 블록체인에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
 - 'New RPC URL'상자에 http://127.0.0.1:7545를 입력하고 'Save'을 클릭합니다.
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
-![Alt text](metamask_setting.png)
-
+![Alt text](metamask_setting2.png)
 
 ### 4.2. dApp 구동하기
 로컬 웹 서버를 시작합니다.

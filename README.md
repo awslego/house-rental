@@ -611,26 +611,21 @@ $ vi truffle.js
 
 코드를 아래와 같이 수정하세요.
 ```javascript
-const HDWalletProvider = require("truffle-hdwallet-provider-privkey");
-var mnemonic = "right limb chimney safe slam fan proof swim solar someone bottom winner";
-const privateKeys = ["446fbba87648ed7cbfb410e1fdc97ceb8a79b8f69e5094a1befd9b248cdc9175"]; // private keys
+hyeyop@hyeyop:~/nodejs/lease-property> truffle migrate --network awsNetwork
+Using network 'awsNetwork'.
 
-module.exports = {
-  networks: {
-    development: {
-      host: "127.0.0.1",
-      port: 7545,
-      network_id: "*" // Match any network id
-    },
-    awsNetwork: {
-      provider: () => {
-        return new HDWalletProvider(privateKeys, "http://18.237.175.220:8545")
-      },
-      gas: 3000000,
-      network_id: 1234
-    }
-  }
-};
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0xbf7fbfbd756c8c04125d3c3f408b4678834bd399d1b300f3c723d45ca8a2dde2
+  Migrations: 0x0244afc4f2ccd12a4f7b5bc038ccc74962c96a57
+Saving successful migration to network...
+  ... 0x6d04ddaf491eeb04f3ccbc1e751e3033487ed156f703d2107cef8a12456b0c6d
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying LeaseProperty...
+  ... 0x5f8c09ec0cd0420650b4721f17419f23d8001c96c6121fce64ac41a4bb39dc34
+  LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
+Saving artifacts...
 ```
 
 ### 5.5. Smart Contract AWS에 마이그레이션하기 (운영환경)
@@ -644,9 +639,16 @@ Using network 'awsNetwork'.
 
 Running migration: 1_initial_migration.js
   Deploying Migrations...
-  ... 0x2df92bb023d37cceb41cd6dd16eb5ef8e38555093397dcc631dfa7543025fc21
-  
-    (여기서 프라이빗넷에 트랜잭션이 submiited 되고 마이닝 되기를 기다림)
+  ... 0xbf7fbfbd756c8c04125d3c3f408b4678834bd399d1b300f3c723d45ca8a2dde2
+  Migrations: 0x0244afc4f2ccd12a4f7b5bc038ccc74962c96a57
+Saving successful migration to network...
+  ... 0x6d04ddaf491eeb04f3ccbc1e751e3033487ed156f703d2107cef8a12456b0c6d
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying LeaseProperty...
+  ... 0x5f8c09ec0cd0420650b4721f17419f23d8001c96c6121fce64ac41a4bb39dc34
+  LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
+Saving artifacts...
 ```
 
 ## And we're done!

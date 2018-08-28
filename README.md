@@ -579,8 +579,8 @@ $ npm run dev
 - MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
 - Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
 
-## Part 5: AWS Blockchain 구동하기 (운영환경)
-### 5.1. AWS Blockchain Template Prerequisites (별도 작업할 필요없음)
+## Part 5: AWS Blockchain 운영환경 구동하기 (별도 작업할 필요없음)
+### 5.1. AWS Blockchain Template Prerequisites 
 아래 사전 작업을 진행합니다.
 - Create an Elastic IP Address
 - Create a VPC and Subnets
@@ -590,12 +590,12 @@ $ npm run dev
 
 > 상세정보는 다음 링크를 참조하세요. https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
 
-### 5.2. AWS Blockchain Cloudformation 템플릿 실행하기 (별도 작업할 필요없음)
+### 5.2. AWS Blockchain Cloudformation 템플릿 실행하기  
 AWS Blockchain CloudFormation 다운로드 및 실행합니다. 
 
 https://aws-blockchain-templates-us-east-1.s3.us-east-1.amazonaws.com/ethereum/templates/latest/ethereum-network.template.yaml
 
-### 5.3. Truffle HDWallet Provider Private Key 설치하기 
+### 5.3. Truffle HDWallet Provider Private Key 설치하기  
 
 ```
 npm install truffle-hdwallet-provider-privkey
@@ -653,11 +653,12 @@ Saving artifacts...
 ```
 > AWS Blockchain (운영환경)에 Smart Contract 배포가 완료되었습니다.
 
-### 5.6 House Rental 서비스 접속하기 
-다음 House Rental 서비 링크를 클릭하세요. https://52.24.70.179:8082
+## Part 6: AWS Blockchain 운영환경에서 Dapp 이용하기
+### 6.1 House Rental 서비스 접속하기 
+다음 House Rental 서비 링크를 클릭하세요. http://52.24.70.179:8082
 
 
-### 5.7 MetaMask에서 AWS Blockchain의 계정 Import
+### 6.2 MetaMask에서 AWS Blockchain의 계정 Import
 - MetaMask 화면에서 우측 상단 메뉴에서 'Import Account'을 클릭합니다. 
 - PrivateKey를 입력하는 상자에 "afd2168f63635b5235cc8b4d69730faa4ffbea5cfcfab7b7d7625f91656e7d9fd"를 입력하고 'Import'를 클릭합니다.
 - MetaMask를 AWS Blockchain에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.

@@ -54,10 +54,7 @@ Commands:
 ```
 $ rm box-img-lg.png
 $ rm box-img-sm.png
-$ rm src/images/scottish-terrier.jpeg
-$ rm src/images/golden-retriever.jpeg
-$ rm src/images/french-bulldog.jpeg
-$ rm src/images/boxer.jpeg
+$ rm -rf src/images/*.jpeg
 $ rm src/pets.json
 ```
 

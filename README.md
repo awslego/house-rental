@@ -657,7 +657,7 @@ Saving artifacts...
 > AWS Blockchain (운영환경)에 Smart Contract 배포가 완료되었습니다.
 
 ### 5.6 House Rental 서비스 접속하기 
-다음 링크를 클릭하세요. https://52.24.70.179:8082
+다음 House Rental 서비스 링크를 클릭하세요. https://52.24.70.179:8082
 
 
 ### 5.7 MetaMask에서 AWS Blockchain의 계정 Import

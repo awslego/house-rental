@@ -611,21 +611,25 @@ $ vi truffle.js
 
 코드를 아래와 같이 수정하세요.
 ```javascript
-hyeyop@hyeyop:~/nodejs/lease-property> truffle migrate --network awsNetwork
-Using network 'awsNetwork'.
+const HDWalletProvider = require("truffle-hdwallet-provider-privkey");
+const privateKeys = ["afd2168f63635b5235cc8b4d69730faa4ffbea5cfcfab7b7d7625f91656e7d9f"]; // private keys
 
-Running migration: 1_initial_migration.js
-  Deploying Migrations...
-  ... 0xbf7fbfbd756c8c04125d3c3f408b4678834bd399d1b300f3c723d45ca8a2dde2
-  Migrations: 0x0244afc4f2ccd12a4f7b5bc038ccc74962c96a57
-Saving successful migration to network...
-  ... 0x6d04ddaf491eeb04f3ccbc1e751e3033487ed156f703d2107cef8a12456b0c6d
-Saving artifacts...
-Running migration: 2_deploy_contracts.js
-  Deploying LeaseProperty...
-  ... 0x5f8c09ec0cd0420650b4721f17419f23d8001c96c6121fce64ac41a4bb39dc34
-  LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
-Saving artifacts...
+module.exports = {
+    networks: {
+        development: {
+            host: "127.0.0.1",
+            port: 7545,
+            network_id: "*" // Match any network id
+        },
+        awsNetwork: {
+            provider: () => {
+                return new HDWalletProvider(privateKeys, "http://52.24.70.179:8082/private-ethereum-prd")
+            },
+            network_id: 1500,
+            gas: 300000
+        }
+    }
+};
 ```
 
 ### 5.5. Smart Contract AWS에 마이그레이션하기 (운영환경)

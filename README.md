@@ -15,21 +15,21 @@
 ## Part 1: 개발 환경 설정
 ### 1.1. Install the prerequisites
 
-- NPM: https://nodejs.org
-- Truffle: https://github.com/trufflesuite/truffle
-- Ganache: http://truffleframework.com/ganache/
+- NPM : https://nodejs.org
+- Truffle : https://github.com/trufflesuite/truffle
+- Ganache : http://truffleframework.com/ganache/
 - IDE: (eg. Intelij, Eclipse, WinStorm, Visual Studio etc.)
-- (Optional) Syntax Highlighting for your IDE: Solidity 
-- Metamask: https://metamask.io/
+- (Optional) IDE에 맞는 Solidity 플러그인 추가 
+- Metamask : https://metamask.io/
 
 
-### 1.2. Create Project Directory
+### 1.2. Project 디렉토리 생성하기
 ```
 $ mkdir house-rental
 $ cd house-rental
 ```
 
-### 1.3. Create Scaffolding
+### 1.3. Truffle Scaffolding 
 ```
 $ truffle unbox pet-shop
 ```
@@ -49,7 +49,7 @@ Commands:
   Run dev server: npm run dev
 ```
 
-### 1.4.(Optional) Remove files not needed
+### 1.4.(Optional) 불필요한 파일 삭제하기
 아래 이미지를 삭제합니다. (미사용)
 ```
 $ rm box-img-lg.png
@@ -123,12 +123,12 @@ module.exports = function(deployer) {
 > Migrations/ 폴더에 default로 1_initial_migration.js 파일이 존재합니다. 
 > 이 파일은 Migrations.sol 컨트랙트의 배포를 관리하며, 변경되지 않은 컨트랙트를 이중 마이그레이션하지 않도록 보장합니다. 
 
-### 2.4. Run Ganache for the development environment
+### 2.4. Ganache 실행하기 (개발환경)
 
 Smart Contract를 블록체인에 마이그레이션(배포)하기 전에 먼저 블록체인을 실행해야합니다. 
 여기서는 개발 환경으로 Ganache (TestRPC)를 사용합니다.
 
-### 2.5. Smart Contract 마이그레이션 (Ganache)
+### 2.5. Smart Contract 마이그레이션하기 (Ganache)
 ```
 $ truffle migrate --network development
 ```
@@ -154,17 +154,16 @@ Saving successful migration to network...
 Saving artifacts...
 ```
 
-### 2.6. In Ganache, note that the state of the blockchain has changed.
+### 2.6. Ganache에서 블록체인의 상태가 변경 확인하기
  
 Ganache를 통해 블록체인의 상태가 변경된 것을 확인합니다. 
 현재 블록이 이전에 0이었는데 블록이 4로 변경된 되고, 첫 번째 계정의 원래 100 ETH였지만 마이그레이션하는 데 드는 트랜잭션 비용으로 인해 이제는 더 낮아졌습니다.
 ![Alt text](ganache_setting.png)
 
-### 2.7. Create New Tests File
+### 2.7. Tests용 신규 파일 생성하기
 ```
 $ vi test/TestLeaseProperty.sol
 ```
-
 코드를 아래와 같이 수정하세요.
 ```solidity
 pragma solidity ^0.4.24;
@@ -201,7 +200,7 @@ contract TestLeaseProperty {
     }
 }
 ```
-### 2.8. Run the tests
+### 2.8.t Test 실행하기
 ```
 $ truffle test
 ```
@@ -226,7 +225,7 @@ Compiling truffle/DeployedAddresses.sol...
 ```
 
 ## Part 3: Smart Contract와 상호 작용하는 사용자 인터페이스 만들기
-### 3.1. Modify the app.js file, 
+### 3.1. app.js 파일 수정하기 
 ```
 $ vi src/js/app.js
 ```
@@ -321,7 +320,7 @@ App = {
       }
 
       var account = accounts[0];
-
+      
       App.contracts.LeaseProperty.deployed().then(function(instance) {
         leasePropertyInstance = instance;
 
@@ -348,13 +347,12 @@ $(function() {
 >  - Properties.json에서 House 정보를 읽어 UI 업데이트
 >  - lease() 함수 처리
 
-### 3.2. Modify the index.html file
+### 3.2. the index.html 파일 수정하기
 ```
 $ vi src/index.html
 ```
 
 코드를 아래와 같이 수정하세요.
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -420,13 +418,12 @@ $ vi src/index.html
 ```
 
 
-### 3.3 Create properties.json file
+### 3.3 properties.json 파일 생성하기
 ```
 $ vi src/properties.json
 ```
 
 코드를 아래와 같이 수정하세요.
-
 ```json
 [
   {
@@ -561,7 +558,7 @@ $ vi src/properties.json
 ```
 
 ## Part 4: 브라우저에서 dapp과 상호 작용
-### 4.1. MetaMask 설치 및 세팅
+### 4.1. MetaMask 설치 및 세팅하기
 - 브라우저에 MetaMask를 설치합니다. https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en
 - 일단 설치가 완료되면, 주소 표시줄 옆에 MetaMask fox 아이콘을 볼수 있습니다.
 - Privacy Notice를 수락하기위해서 'Accept' 버튼을 클릭합니다.
@@ -572,9 +569,8 @@ $ vi src/properties.json
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
 ![Alt text](metamask_setting.png)
 
-### 4.2. Installing and configuring lite-server
 
-## Part 5: Let's run our dapp
+### 4.2. dApp 구동하기
 로컬 웹 서버를 시작합니다.
 ```
 $ npm run dev
@@ -584,30 +580,29 @@ $ npm run dev
 - MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
 - Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
 
-## Part 9: We're now ready to deploy to AWS
-### 9.1. AWS Blockchain Template Prerequisites
-Perform the following:
+## Part 5: AWS Blockchain 구동하기 (운영환경)
+### 5.1. AWS Blockchain Template Prerequisites (별도 작업할 필요없음)
+아래 사전 작업을 진행합니다.
 - Create an Elastic IP Address
 - Create a VPC and Subnets
 - Create Security Groups
 - Create an IAM Role for Amazon ECS and EC2 Instance Profile
 - Create a Bastion Host
 
-Details can be found here:
-https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
+> 상세정보는 다음 링크를 참조하세요. https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
 
-### 9.2. Run AWS Blockchain Cloudformation Template for Ethereum
-Download and run the CF Tempate from here:
+### 5.2. AWS Blockchain Cloudformation 템플릿 실행하기 (별도 작업할 필요없음)
+AWS Blockchain CloudFormation 다운로드 및 실행합니다. 
 
 https://aws-blockchain-templates-us-east-1.s3.us-east-1.amazonaws.com/ethereum/templates/latest/ethereum-network.template.yaml
 
-### 9.3. Install Truffle HDWallet Provider Private Key
-https://www.npmjs.com/package/truffle-hdwallet-provider-privkey
+### 5.3. Truffle HDWallet Provider Private Key 설치하기 
+
 ```
 npm install truffle-hdwallet-provider-privkey
 ```
-
-### 9.4. Modify your truffle.js file
+> 상세정보는 다음 링크를 참조하세요. https://www.npmjs.com/package/truffle-hdwallet-provider-privkey
+### 5.4. truffle.js 파일에 운영환경 네트워크 추가하기
 ```
 $ vi truffle.js
 ```
@@ -636,9 +631,20 @@ module.exports = {
 };
 ```
 
-### 9.5. Compile & Deploy Lease Smart Contract to AWS
+### 5.5. Smart Contract AWS에 마이그레이션하기 (운영환경)
 ```
 $ truffle migrate --network awsNetwork
+```
+
+✔︎ 다음과 같은 결과가 출력됩니다.
+```
+Using network 'awsNetwork'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0x2df92bb023d37cceb41cd6dd16eb5ef8e38555093397dcc631dfa7543025fc21
+  
+    (여기서 프라이빗넷에 트랜잭션이 submiited 되고 마이닝 되기를 기다림)
 ```
 
 ## And we're done!

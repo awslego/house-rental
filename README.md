@@ -200,7 +200,7 @@ contract TestLeaseProperty {
     }
 }
 ```
-### 2.8.t Test 실행하기
+### 2.8. Test 실행하기
 ```
 $ truffle test
 ```

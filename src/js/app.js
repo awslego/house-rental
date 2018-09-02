@@ -65,7 +65,8 @@ App = {
         }).then(function(lessees) {
             for (i = 0; i < lessees.length; i++) {
                 if (lessees[i] !== '0x0000000000000000000000000000000000000000') {
-                    $('.panel-property').eq(i).find('button').text('Success').attr('disabled', true);
+                    $('.panel-property').eq(i).find('.property-owner').text(lessees[i].substr(0, 12)+"...");
+                    $('.panel-property').eq(i).find('button').text('Purchased').attr('disabled', true);
                 }
             }
         }).catch(function(err) {

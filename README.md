@@ -296,7 +296,7 @@ App = {
     }).then(function(lessees) {
       for (i = 0; i < lessees.length; i++) {
         if (lessees[i] !== '0x0000000000000000000000000000000000000000') {
-          $('.panel-property').eq(i).find('button').text('Success').attr('disabled', true);
+          $('.panel-property').eq(i).find('button').text('Purchased').attr('disabled', true);
         }
       }
     }).catch(function(err) {
@@ -358,7 +358,7 @@ $ vi src/index.html
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Properties For Lease</title>
+    <title>HOUSE RENTAL</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

@@ -11,7 +11,7 @@ module.exports = {
             port: 7545,
             network_id: "*" // Match any network id
         },
-        awsNetwork: {
+        awsNetwork : {
                 provider: () => {
                 return new HDWalletProvider(privateKeysECS, "http://52.24.70.179:8082/private-ethereum-prd")
             },

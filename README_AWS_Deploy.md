@@ -63,17 +63,42 @@ Saving artifacts...
 > AWS Blockchain (운영환경)에 Smart Contract 배포가 완료되었습니다.
 
 ## Part 6: AWS Blockchain 운영환경에서 Dapp 이용하기
-### 6.1 House Rental 서비스 접속하기 
-다음 House Rental 서비 링크를 클릭하세요. http://:8082
-
-
-### 6.2 MetaMask에서 AWS Blockchain의 계정 Import
+### 6.1 MetaMask에서 AWS Blockchain의 계정 Import
 - MetaMask 화면에서 우측 상단 메뉴에서 'Import Account'을 클릭합니다. 
 - PrivateKey를 입력하는 상자에 446fbba87648ed7cbfb410e1fdc97ceb8a79b8f69e5094a1befd9b248cdc9175를 입력하고 'Import'를 클릭합니다.
 - MetaMask를 AWS Blockchain에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
-- 'New RPC URL'상자에  http://<your-public-IP>:8545 를 입력하고 'Save'를 클릭합니다.
+- 'New RPC URL'상자에  http://< your-public-IP >:8545 를 입력하고 'Save'를 클릭합니다.
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
 ![Alt text](img/metamask_prd_setting.png)
+
+### 6.2 app.js 파일의 initWeb3 수정하기 
+```
+$ vi src/js/app.js
+```
+코드를 아래와 같이 수정하세요.
+```javascript
+ initWeb3: function() {
+    // Is there an injected web3 instance?
+    if (typeof web3 !== 'undefined') {
+      App.web3Provider = web3.currentProvider;
+    } else {
+      // If no injected web3 instance is detected, fall back to Ganache
+      App.web3Provider = new Web3.providers.HttpProvider('http://< your-public-IP >:8545');
+    }
+    web3 = new Web3(App.web3Provider);
+    return App.initContract();
+  } 
+```
+
+### 6.3 House Rental 서비스 접속하기 
+- dev 서버가 실행되고 dapp이 포함된 새 브라우저 탭이 자동으로 열립니다.
+- dapp을 사용하기 위해 원하는 Lease 버튼을 클릭하세요.
+로컬 웹 서버를 다시 시작합니다.
+```
+$ npm run dev
+```
+
+
 
 
 
@@ -92,7 +117,7 @@ Saving artifacts...
 
 > AWS Ethereum Template 설치 가이드 https://github.com/awslego/www/blob/master/data/HOL_BLOCKCHAIN_TEMPLATE.pdf
 
-> AWS Ethereum Template 바로가기 https://docs.aws.amazon.com/ko_kr/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
+> AWS Ethereum Template 바로가 https://docs.aws.amazon.com/ko_kr/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
 ### 7.2. AWS Blockchain Cloudformation 템플릿 실행하기  
 AWS Blockchain CloudFormation 다운로드 및 실행합니다. 
 

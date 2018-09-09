@@ -574,7 +574,7 @@ $ vi src/properties.json
 ```
 $ npm run dev
 ```
-- dev 서버가 실행되고 dapp이 포함 된 새 브라우저 탭이 자동으로 열립니다.
+- dev 서버가 실행되고 dapp이 포함된 새 브라우저 탭이 자동으로 열립니다.
 - dapp을 사용하기 위해 원하는 Lease 버튼을 클릭하세요.
 ![Alt text](img/house-rental-prd.png)
 

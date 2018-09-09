@@ -107,7 +107,7 @@ $ npm run dev
 
 &nbsp;
 
-## [부록] 7. AWS Ethereum Template(ECS) 설치하기
+## [부] 7. AWS Ethereum Template(ECS) 설치하기
 ### 7.1. AWS Blockchain Template Prerequisites 
 아래 사전 작업을 진행합니다.
 - Create an Elastic IP Address
@@ -118,7 +118,6 @@ $ npm run dev
 
 > AWS Ethereum Template 설치 가이드 https://github.com/awslego/www/blob/master/data/HOL_BLOCKCHAIN_TEMPLATE.pdf
 
-> AWS Ethereum Template 바로가 https://docs.aws.amazon.com/ko_kr/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
 ### 7.2. AWS Blockchain Cloudformation 템플릿 실행하기  
 AWS Blockchain CloudFormation 다운로드 및 실행합니다. 
 

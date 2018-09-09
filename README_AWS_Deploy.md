@@ -10,7 +10,7 @@
 npm install truffle-hdwallet-provider-privkey
 ```
 
-### 5.2. truffle.js 파일에 운영환경 네트워크 추가하기
+### 5.2. truffle.js 파일에 AWS 네트워크 추가하기
 ```
 $ vi truffle.js
 ```
@@ -38,7 +38,7 @@ module.exports = {
 };
 ```
 
-### 5.3. Smart Contract를 AWS Blockchain에 마이그레이션하기 (운영 환경)
+### 5.3. Smart Contract를 AWS Blockchain에 배포하기 (운영환경)
 ```
 $ truffle migrate --network awsNetwork
 ```
@@ -60,7 +60,7 @@ Running migration: 2_deploy_contracts.js
   LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
 Saving artifacts...
 ```
-> AWS Blockchain (운영환경)에 Smart Contract 배포가 완료되었습니다.
+> AWS Blockchain(운영환경)에 Smart Contract 배포가 완료되었습니다.
 
 ## Part 6: AWS Blockchain 운영환경에서 Dapp 이용하기
 ### 6.1 MetaMask에서 AWS Blockchain의 계정 Import

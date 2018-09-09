@@ -1,5 +1,5 @@
-# 'House Rental' dApp 
-truffle 기반으로 로컬 개발환경인 Ganeche(TestRPC)에서 Smart Contract 구현, 테스트 및 배포를 합니다.
+# 'House Rental' dApp 구현하기
+truffle 기반으로 로컬 개발환경인 Ganeche(TestRPC)에서 Smart Contract을 구현, 테스트 및 배포를 합니다.
 
 &nbsp;
 ## Part 1: 개발 환경 설정

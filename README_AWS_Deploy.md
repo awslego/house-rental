@@ -63,7 +63,7 @@ Saving artifacts...
 AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
 
 ## Part 6: AWS Blockchain에 Dapp 연동하기
-### 6.1 MetaMask에서 AWS Blockchain의 계정 Import
+### 6.1 AWS Blockchain의 계정을 MetaMask에 Import
 - MetaMask 화면에서 우측 상단 메뉴에서 'Import Account'을 클릭합니다. 
 - PrivateKey를 입력하는 상자에 446fbba87648ed7cbfb410e1fdc97ceb8a79b8f69e5094a1befd9b248cdc9175를 입력하고 'Import'를 클릭합니다.
 - MetaMask를 AWS Blockchain에 연결합니다. 'Main Network'가 표시된 메뉴를 클릭하고 Custom RPC를 선택하십시오.
@@ -91,15 +91,17 @@ $ vi src/js/app.js
 ```
 
 ### 6.3 House Rental 서비스 접속하기 
-- dev 서버가 실행되고 dapp이 포함된 새 브라우저 탭이 자동으로 열립니다.
-- dapp을 사용하기 위해 원하는 Lease 버튼을 클릭하세요.
 로컬 웹 서버를 다시 시작합니다.
 ```
 $ npm run dev
 ```
+- dev 서버가 실행되고 dapp이 포함된 새 브라우저 탭이 자동으로 열립니다.
+- dapp을 사용하기 위해 원하는 Lease 버튼을 클릭하세요.
+- MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
+- Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
 
 
-## And we're all done!
+# And we're all done!
 
 
 ##

@@ -83,11 +83,11 @@ $ vi src/js/app.js
       App.web3Provider = web3.currentProvider;
     } else {
       // If no injected web3 instance is detected, fall back to Ganache
-      App.web3Provider = new Web3.providers.HttpProvider('http://< your-public-IP >:8545');
+      App.web3Provider = new Web3.providers.HttpProvider('http://< your-public-IP >:8545'); // <-- HERE!!
     }
     web3 = new Web3(App.web3Provider);
     return App.initContract();
-  } 
+  }, 
 ```
 
 ### 6.3 House Rental 서비스 접속하기 

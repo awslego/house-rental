@@ -75,8 +75,7 @@ Saving artifacts...
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
 ![Alt text](img/metamask_prd_setting.png)
 
-서비스 화면에서 'Lease'버튼을 클릭해봅니다.
-![Alt text](img/house-rental-prd.png)
+
 
 ## And we're all done!
 

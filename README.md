@@ -576,11 +576,10 @@ $ npm run dev
 ```
 - dev 서버가 실행되고 dapp이 포함 된 새 브라우저 탭이 자동으로 열립니다.
 - dapp을 사용하기 위해 원하는 Lease 버튼을 클릭하세요.
+![Alt text](img/house-rental-prd.png)
+
 - MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
 - Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
-
-
-
 
 ## And we're all done on TestRPC!
 

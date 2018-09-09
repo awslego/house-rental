@@ -75,7 +75,7 @@ AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
 ```
 $ vi src/js/app.js
 ```
-코드를 아래와 같이 수정하세요.
+코드에서 <your-public-IP> 부분을 수정하세요.
 ```javascript
  initWeb3: function() {
     // Is there an injected web3 instance?
@@ -83,7 +83,7 @@ $ vi src/js/app.js
       App.web3Provider = web3.currentProvider;
     } else {
       // If no injected web3 instance is detected, fall back to Ganache
-      App.web3Provider = new Web3.providers.HttpProvider('http://< your-public-IP >:8545'); // <-- HERE!!
+      App.web3Provider = new Web3.providers.HttpProvider('http://<your-public-IP>:8545'); // <-- HERE!!
     }
     web3 = new Web3(App.web3Provider);
     return App.initContract();

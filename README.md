@@ -1,5 +1,5 @@
 # 'House Rental' 구현하기
-truffle 기반으로 로컬 개발환경인 Ganeche(TestRPC)에서 Smart Contract을 구현, 테스트 및 배포를 합니다.
+Truffle과 Ganache(TestRPC)를 이용하여 손쉽게 Smart Contract 구현 및 배포하고 간단한 Dapp 애플리케이션을 구동시켜보는 실습입니다.
 
 &nbsp;
 ## Part 1: 개발 환경 설정

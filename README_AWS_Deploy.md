@@ -92,8 +92,7 @@ Saving artifacts...
 
 > AWS Ethereum Template 설치 가이드 https://github.com/awslego/www/blob/master/data/HOL_BLOCKCHAIN_TEMPLATE.pdf
 
-> 상세정보는 다음 링크를 참조하세요. https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
-
+> AWS Ethereum Template 바로가기 https://docs.aws.amazon.com/ko_kr/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
 ### 7.2. AWS Blockchain Cloudformation 템플릿 실행하기  
 AWS Blockchain CloudFormation 다운로드 및 실행합니다. 
 

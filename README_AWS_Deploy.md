@@ -101,11 +101,13 @@ $ npm run dev
 - MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
 - Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
 
+&nbsp;
 
 # And we're all done!
+&nbsp;
 
+&nbsp;
 
-##
 ## [별첨] 7. AWS Ethereum Template(ECS) 설치하기
 ### 7.1. AWS Blockchain Template Prerequisites 
 아래 사전 작업을 진행합니다.

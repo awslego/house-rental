@@ -582,6 +582,9 @@ $ npm run dev
 - MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
 - Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
 
+&nbsp;
 ## And we're all done on TestRPC!
+
+&nbsp;
 
 ☛ AWS 운영 배포하기 https://github.com/awslego/house-rental/blob/master/README_AWS_Deploy.md

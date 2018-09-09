@@ -60,9 +60,9 @@ Running migration: 2_deploy_contracts.js
   LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
 Saving artifacts...
 ```
-> AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
+## AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
 
-## Part 6: AWS Blockchain 운영환경에서 Dapp 이용하기
+## Part 6: AWS Blockchain 에서 Dapp 이용하기
 ### 6.1 MetaMask에서 AWS Blockchain의 계정 Import
 - MetaMask 화면에서 우측 상단 메뉴에서 'Import Account'을 클릭합니다. 
 - PrivateKey를 입력하는 상자에 446fbba87648ed7cbfb410e1fdc97ceb8a79b8f69e5094a1befd9b248cdc9175를 입력하고 'Import'를 클릭합니다.
@@ -97,9 +97,6 @@ $ vi src/js/app.js
 ```
 $ npm run dev
 ```
-
-
-
 
 
 ## And we're all done!

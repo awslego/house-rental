@@ -1,5 +1,5 @@
 # 'House Rental' dApp 
-TestRPC에서 구현이 끝나면 운영 환경인 AW로 마이그레이션 합니다.
+TestRPC에서 구현이 끝나면 운영 환경인 AWS 네트워크로 마이그레이션 합니다.
 
 ## Part 5: AWS 운영 환경에 배포하기 
 

@@ -107,29 +107,27 @@ $ npm run dev
 
 &nbsp;
 
-## [부] 7. AWS Ethereum Template(ECS) 설치하기
+## [부록] 7. AWS Ethereum Template(ECS) 설치하기
 ### 7.1. AWS Blockchain Template Prerequisites 
-아래 사전 작업을 진행합니다.
+아래 사전 작업을 진행하고, AWS Blockchain CloudFormation을 실행합니다. 
 - Create an Elastic IP Address
 - Create a VPC and Subnets
 - Create Security Groups
 - Create an IAM Role for Amazon ECS and EC2 Instance Profile
 - Create a Bastion Host
 
+> AWS Ethereum Template 바로가기 https://docs.aws.amazon.com/ko_kr/blockchain-templates/latest/developerguide/blockchain-template-getting-started-prerequisites.html
+
 > AWS Ethereum Template 설치 가이드 https://github.com/awslego/www/blob/master/data/HOL_BLOCKCHAIN_TEMPLATE.pdf
 
-### 7.2. AWS Blockchain Cloudformation 템플릿 실행하기  
-AWS Blockchain CloudFormation 다운로드 및 실행합니다. 
 
-https://aws-blockchain-templates-us-east-1.s3.us-east-1.amazonaws.com/ethereum/templates/latest/ethereum-network.template.yaml
-
-### 7.3. Truffle HDWallet Provider Private Key 설치하기  
+### 7.2. Truffle HDWallet Provider Private Key 설치하기 
 
 ```
 npm install truffle-hdwallet-provider-privkey
 ```
 
-### 7.4. truffle.js 파일에 운영환경 네트워크 추가하기
+### 7.3. truffle.js 파일에 운영환경 네트워크 추가하기
 ```
 $ vi truffle.js
 ```
@@ -157,7 +155,7 @@ module.exports = {
 };
 ```
 
-### 7.5. Smart Contract를 AWS Blockchain에 마이그레이션하기 (운영환경)
+### 7.4. Smart Contract를 AWS Blockchain에 마이그레이션하기 (운영환경)
 ```
 $ truffle migrate --network awsNetwork
 ```

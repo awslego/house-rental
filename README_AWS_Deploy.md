@@ -1,6 +1,7 @@
 # 'House Rental' dApp 
 TestRPC에서 구현이 끝나면 운영 환경인 AWS 네트워크로 마이그레이션 합니다.
 
+&nbsp;
 ## Part 5: AWS 운영 환경에 배포하기 
 
 ### 5.1. Truffle HDWallet Provider Private Key 설치하기  

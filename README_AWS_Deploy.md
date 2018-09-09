@@ -60,7 +60,7 @@ Running migration: 2_deploy_contracts.js
   LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
 Saving artifacts...
 ```
-## AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
+✔ AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
 
 ## Part 6: AWS Blockchain 에서 Dapp 이용하기
 ### 6.1 MetaMask에서 AWS Blockchain의 계정 Import

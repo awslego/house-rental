@@ -1,16 +1,5 @@
 # 'House Rental' dApp 
-이더리움 dApp개발을 위한 truffle 튜토리얼 중 pet-shop을 기반으로 로컬 개발환경에서 Smart Contract 개발, 컨트랙트 테스트를 한뒤, 
-운영 환경인 AWS에 마이그레이션하는 실습입니다.
-
-작업 순서 요약 : 
-
-1. 개발 환경 설정 및 Truffle Scaffolding
-2. Smart Contract 작성/ 컴파일 및 배포 / 유닛테스트
-3. Smart Contract와 상호 작용하는 유저 인터페이스 만들기
-4. 브라우저에서 dApp과 상호 작용
-5. (옵션) AWS Blockchain Template을 이용한 프라이빗 네트워크 구축하기 
-6. (옵션) AWS에 배포하기
-
+truffle 기반으로 로컬 개발환경인 Ganeche(TestRPC)에서 Smart Contract 구현, 테스트 및 배포를 합니다.
 
 ## Part 1: 개발 환경 설정
 ### 1.1. Install the prerequisites

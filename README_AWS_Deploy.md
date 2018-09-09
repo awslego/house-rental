@@ -1,6 +1,5 @@
 # 'House Rental' dApp 
-이더리움 dApp개발을 위한 truffle 튜토리얼 중 pet-shop을 기반으로 로컬 개발환경에서 Smart Contract 개발, 컨트랙트 테스트를 한뒤, 
-운영 환경인 AWS에 마이그레이션하는 실습입니다.
+TestRPC에서 구현이 끝나면 운영 환경인 AW로 마이그레이션 합니다.
 
 ## Part 5: AWS 운영 환경에 배포하기 
 

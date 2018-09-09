@@ -29,14 +29,23 @@ module.exports = {
         },
         awsNetwork: {
             provider: () => {
-                return new HDWalletProvider(privateKeys, "http://<your-public-IP>:8545")
+                return new HDWalletProvider(privateKeys, "http://34.220.191.169:8545")
             },
-            network_id: "*",
-            gas: 300000
+            network_id: 14,
+            gas: 2000000,
+            gasPrice: 10000000000
         }
     }
 };
 ```
+
+### 5.3. Smart Contract를 AWS Blockchain에 배포하기  
+```
+$ truffle test  --network awsNetwork
+```
+✔︎ 다음과 같은 결과가 출력됩니다.
+```
+
 
 ### 5.3. Smart Contract를 AWS Blockchain에 배포하기  
 ```
@@ -49,15 +58,17 @@ Using network 'awsNetwork'.
 
 Running migration: 1_initial_migration.js
   Deploying Migrations...
-  ... 0xbf7fbfbd756c8c04125d3c3f408b4678834bd399d1b300f3c723d45ca8a2dde2
-  Migrations: 0x0244afc4f2ccd12a4f7b5bc038ccc74962c96a57
+  ... 0x82a3aaf9d71857bfc5a8d5deeef594304925a5a9ca5b2af3ca5d626764692ffe
+  Migrations: 0xb95d66c2d3b7605183c41ee5e5d775b83d0f8d5d
 Saving successful migration to network...
-  ... 0x6d04ddaf491eeb04f3ccbc1e751e3033487ed156f703d2107cef8a12456b0c6d
+  ... 0x96846c5fb00ecc90c1a675750631d8a4aee848f584500a3b325b2a425e29a423
 Saving artifacts...
 Running migration: 2_deploy_contracts.js
   Deploying LeaseProperty...
-  ... 0x5f8c09ec0cd0420650b4721f17419f23d8001c96c6121fce64ac41a4bb39dc34
-  LeaseProperty: 0xed32872236e066b1a20e051abfd378cc50457374
+  ... 0xccf10953613ec5265fbada5691b46065064bdd0ab72ab2b6c1e9de4d3cc22608
+  LeaseProperty: 0x98dd1dbdb6d3c6f9d9290a2e8671c1b53f843a6d
+Saving successful migration to network...
+  ... 0xfd7289eb789bee7639e0e3b7da52a894e3cb6bffa6730dfc7fa553ff292b2a4a
 Saving artifacts...
 ```
 AWS Blockchain에 Smart Contract 배포가 완료되었습니다.

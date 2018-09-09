@@ -38,7 +38,7 @@ module.exports = {
 };
 ```
 
-### 5.3. Smart Contract를 AWS Blockchain에 마이그레이션하기 (운영환경)
+### 5.3. Smart Contract를 AWS Blockchain에 마이그레이션하기 (운영 환경)
 ```
 $ truffle migrate --network awsNetwork
 ```

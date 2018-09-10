@@ -39,15 +39,23 @@ module.exports = {
 };
 ```
 
-### 5.3. Smart Contract를 AWS Blockchain에 배포하기  
+### 5.3. AWS Geth 실행하기 (운영환경)
+
+Smart Contract를 블록체인에 마이그레이션(배포)하기 전에 먼저 블록체인을 실행해야합니다. 
+여기서는 운영 환경으로 AWS Geth 클라이언트를 사용합니다.
+```
+$ cd mission1; ./gethclient
+```
+
+### 5.4. Smart Contract를 AWS Blockchain에 배포하기  
 ```
 $ truffle test  --network awsNetwork
 ```
 ✔︎ 다음과 같은 결과가 출력됩니다.
 ```
+```
 
-
-### 5.3. Smart Contract를 AWS Blockchain에 배포하기  
+### 5.5. Smart Contract를 AWS Blockchain에 배포하기  
 ```
 $ truffle migrate --network awsNetwork
 ```

@@ -15,7 +15,7 @@ npm install truffle-hdwallet-provider-privkey
 $ vi truffle.js
 ```
 
-<Your-Public-IP>을 확인하여 코드를 아래와 같이 수정하세요.
+<Your-Public-IP>을 실제 값으로 변경하고, 코드를 아래와 같이 수정하세요.
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-privkey");
 const privateKeys = ["446fbba87648ed7cbfb410e1fdc97ceb8a79b8f69e5094a1befd9b248cdc9175"]; // private keys

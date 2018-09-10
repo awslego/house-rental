@@ -15,7 +15,7 @@ npm install truffle-hdwallet-provider-privkey
 $ vi truffle.js
 ```
 
-코드를 아래와 같이 수정하세요.
+<Your-Public-IP>을 확인하여 코드를 아래와 같이 수정하세요.
 ```javascript
 const HDWalletProvider = require("truffle-hdwallet-provider-privkey");
 const privateKeys = ["446fbba87648ed7cbfb410e1fdc97ceb8a79b8f69e5094a1befd9b248cdc9175"]; // private keys
@@ -29,7 +29,7 @@ module.exports = {
         },
         awsNetwork: {
             provider: () => {
-                return new HDWalletProvider(privateKeys, "http://34.220.191.169:8545")
+                return new HDWalletProvider(privateKeys, "http://<Your-Public-IP>:8545")
             },
             network_id: 14,
             gas: 2000000,

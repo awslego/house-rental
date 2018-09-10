@@ -115,7 +115,39 @@ module.exports = function(deployer) {
 Smart Contract를 블록체인에 마이그레이션(배포)하기 전에 먼저 블록체인을 실행해야합니다. 
 여기서는 개발 환경으로 Ganache (TestRPC)를 사용합니다.
 
-### 2.5. Tests용 신규 파일 생성하기
+### 2.5. Smart Contract 마이그레이션하기 (Ganache)
+```
+$ truffle migrate 
+```
+> truffle.js파일에서 networks에 'development' 정보를 읽어 로컬 Ganache에 연결됩니다.
+
+✔︎ 다음과 같은 결과가 출력됩니다.
+```
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0xb191d286c9a2fcab68b1218cafc7c40477b3c5c4e5987582b7b53004ae776c5a
+  Migrations: 0x534774eee39ec144dd188399cfb0a49b63c2c005
+Saving successful migration to network...
+  ... 0x8c282e8b29cb0692ec8d37a36d43986dfbdd684c3af92db6b1f7b6f531e36317
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying LeaseProperty...
+  ... 0x0804a39647b115bf060cd269feff909564e8aac975ba3860c2165bcff73e8f0e
+  LeaseProperty: 0xfa124fc5290ac561b69bcf8a23d4128e7ac22e5d
+Saving successful migration to network...
+  ... 0x0d35af9affae169a12bb8cddaca285dc5a0ab2599cc60b46ebea8c1e70e2b0fb
+Saving artifacts...
+```
+
+### 2.6. Ganache에서 블록체인의 상태가 변경 확인하기
+ 
+Ganache를 통해 블록체인의 상태가 변경된 것을 확인합니다. 
+현재 블록이 이전에 0이었는데 블록이 4로 변경된 되고, 첫 번째 계정의 원래 100 ETH였지만 마이그레이션하는 데 드는 트랜잭션 비용으로 인해 이제는 더 낮아졌습니다.
+![Alt text](img/ganache_setting.png)
+
+### 2.7. Tests용 신규 파일 생성하기
 ```
 $ vi test/TestLeaseProperty.sol
 ```
@@ -155,7 +187,7 @@ contract TestLeaseProperty {
     }
 }
 ```
-### 2.6. Test 실행하기
+### 2.8. Test 실행하기
 ```
 $ truffle test
 ```
@@ -178,39 +210,6 @@ Compiling truffle/DeployedAddresses.sol...
 
   3 passing (1s)
 ```
-
-
-### 2.7. Smart Contract 마이그레이션하기 (Ganache)
-```
-$ truffle migrate 
-```
-> truffle.js파일에서 networks에 'development' 정보를 읽어 로컬 Ganache에 연결됩니다.
-
-✔︎ 다음과 같은 결과가 출력됩니다.
-```
-Using network 'development'.
-
-Running migration: 1_initial_migration.js
-  Deploying Migrations...
-  ... 0xb191d286c9a2fcab68b1218cafc7c40477b3c5c4e5987582b7b53004ae776c5a
-  Migrations: 0x534774eee39ec144dd188399cfb0a49b63c2c005
-Saving successful migration to network...
-  ... 0x8c282e8b29cb0692ec8d37a36d43986dfbdd684c3af92db6b1f7b6f531e36317
-Saving artifacts...
-Running migration: 2_deploy_contracts.js
-  Deploying LeaseProperty...
-  ... 0x0804a39647b115bf060cd269feff909564e8aac975ba3860c2165bcff73e8f0e
-  LeaseProperty: 0xfa124fc5290ac561b69bcf8a23d4128e7ac22e5d
-Saving successful migration to network...
-  ... 0x0d35af9affae169a12bb8cddaca285dc5a0ab2599cc60b46ebea8c1e70e2b0fb
-Saving artifacts...
-```
-
-### 2.8. Ganache에서 블록체인의 상태가 변경 확인하기
- 
-Ganache를 통해 블록체인의 상태가 변경된 것을 확인합니다. 
-현재 블록이 이전에 0이었는데 블록이 4로 변경된 되고, 첫 번째 계정의 원래 100 ETH였지만 마이그레이션하는 데 드는 트랜잭션 비용으로 인해 이제는 더 낮아졌습니다.
-![Alt text](img/ganache_setting.png)
 
 
 ## Part 3: Smart Contract와 상호 작용하는 사용자 인터페이스 만들기

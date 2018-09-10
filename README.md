@@ -405,7 +405,6 @@ $ vi src/index.html
 </html>
 ```
 
-
 ### 3.3 properties.json 파일 생성하기
 ```
 $ vi src/properties.json

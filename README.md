@@ -329,11 +329,6 @@ $(function() {
   });
 });
 ```
-> - app.js에서 포함된 내용
->  - web3 인스턴스 정의
->  - contract 인스턴스 정의
->  - Properties.json에서 House 정보를 읽어 UI 업데이트
->  - lease() 함수 처리
 
 ### 3.2. the index.html 파일 수정하기
 ```
@@ -404,6 +399,7 @@ $ vi src/index.html
   </body>
 </html>
 ```
+
 
 ### 3.3 properties.json 파일 생성하기
 ```

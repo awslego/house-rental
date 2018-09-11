@@ -55,6 +55,7 @@ $ truffle migrate --network awsNetwork
 ```
 AWS Geth 콘솔창(5.3)에서 마이닝을 시작하고 아래와 같이 배포가 완료되면 
 마이닝을 종료합니다.
+
 ![Alt text](img/geth_mining.png)
 
 ✔︎ 다음과 같은 결과가 출력됩니다.

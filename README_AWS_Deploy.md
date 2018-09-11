@@ -31,7 +31,7 @@ module.exports = {
             provider: () => {
                 return new HDWalletProvider(privateKeys, "http://<Your-Public-IP>:8545")
             },
-            network_id: 14,
+            network_id: 15,
             gas: 2000000,
             gasPrice: 10000000000
         }

@@ -13,7 +13,7 @@ module.exports = {
         },
         awsNetwork : {
                 provider: () => {
-                return new HDWalletProvider(privateKeys, "http://34.220.191.169:8545")
+                return new HDWalletProvider(privateKeys, "http://54.202.42.161:8545")
             },
             network_id: "*",
             gas: 2000000,

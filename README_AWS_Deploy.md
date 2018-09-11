@@ -42,8 +42,7 @@ module.exports = {
 ### 5.3. AWS Geth 실행하기 (운영환경)
 
 Smart Contract를 블록체인에 마이그레이션(배포)하기 전에 먼저 블록체인을 실행해야합니다. 
-만일 AWS Geth가 종료되어 있다면, 재시작 해야 합니다.
-AWS 콘솔에 접속한 뒤, AWS Geth 클라이언트를 실행합니다.
+만일 AWS Geth가 종료되어 있다면 AWS Terminal 창에서 Geth 클라이언트를 재실행하세요.
 ```
 (Terminal #1) $ cd mission1; ./gethclient
 (Terminal #2) $ cd mission1: ./gethconsole
@@ -53,12 +52,11 @@ AWS 콘솔에 접속한 뒤, AWS Geth 클라이언트를 실행합니다.
 ```
 $ truffle migrate --network awsNetwork
 ```
-AWS Geth 콘솔창(5.3)에서 마이닝을 시작하고 아래와 같이 배포가 완료되면 
-마이닝을 종료합니다.
-
+배포를 요청하면, AWS Geth에 트랜잭션이 Submitted 됩니다.<br>
+AWS Terminal창에서 마이닝을 시작하고 컨트랙트 배포가 완료되면 마이닝을 종료합니다.
 ![Alt text](img/geth_mining.png)
 
-✔︎ 다음과 같은 결과가 출력됩니다.
+✔︎ 컨트랙트 배포가 완료되면 다음과 같은 결과가 출력됩니다.
 ```
 Using network 'awsNetwork'.
 

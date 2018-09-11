@@ -76,7 +76,7 @@ Saving successful migration to network...
   ... 0xfd7289eb789bee7639e0e3b7da52a894e3cb6bffa6730dfc7fa553ff292b2a4a
 Saving artifacts...
 ```
-AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
+AWS Geth에 Smart Contract 배포가 완료되었습니다.
 
 ## Part 6: AWS Blockchain에 Dapp 연동하기
 ### 6.1 AWS Blockchain의 계정을 MetaMask에 Import
@@ -86,35 +86,6 @@ AWS Blockchain에 Smart Contract 배포가 완료되었습니다.
 - 'New RPC URL'상자에  http://< your-public-IP >:8545 를 입력하고 'Save'를 클릭합니다.
 - 'Setting'옆에 있는 왼쪽 화살표를 클릭하여 페이지를 닫고 계정 페이지로 돌아갑니다.
 ![Alt text](img/metamask_prd_setting.png)
-
-### 6.2 app.js 파일의 initWeb3 수정하기 
-```
-$ vi src/js/app.js
-```
-코드에서 < your-public-IP > 부분을 수정하세요.
-```javascript
- initWeb3: function() {
-    // Is there an injected web3 instance?
-    if (typeof web3 !== 'undefined') {
-      App.web3Provider = web3.currentProvider;
-    } else {
-      // If no injected web3 instance is detected, fall back to Ganache
-      App.web3Provider = new Web3.providers.HttpProvider('http://<your-public-IP>:8545'); // <-- HERE!!
-    }
-    web3 = new Web3(App.web3Provider);
-    return App.initContract();
-  }, 
-```
-
-### 6.3 House Rental 서비스 접속하기 
-로컬 웹 서버를 다시 시작합니다.
-```
-$ npm run dev
-```
-- dev 서버가 실행되고 dapp이 포함된 새 브라우저 탭이 자동으로 열립니다.
-- dapp을 사용하기 위해 원하는 Lease 버튼을 클릭하세요.
-- MetaMask를 통해 트랜잭션을 승인하라는 메시지가 자동으로 표시됩니다. SUBMIT을 클릭하여 트랜잭션을 승인합니다.
-- Lease가 완료된 House의 경우 'Success'이라고 표시됩니다.
 
 &nbsp;
 

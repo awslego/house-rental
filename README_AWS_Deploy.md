@@ -76,7 +76,7 @@ Saving successful migration to network...
   ... 0xfd7289eb789bee7639e0e3b7da52a894e3cb6bffa6730dfc7fa553ff292b2a4a
 Saving artifacts...
 ```
-AWS Geth에 Smart Contract 배포가 완료되었습니다.
+> AWS Geth에 Smart Contract 배포가 완료되었습니다.
 
 ## Part 6: AWS Blockchain에 Dapp 연동하기
 ### 6.1 AWS Blockchain의 계정을 MetaMask에 Import

@@ -8,6 +8,7 @@ Truffle과 Ganache(TestRPC)를 이용하여 손쉽게 Smart Contract 구현 및 
 - NPM : https://nodejs.org
 - Truffle : https://github.com/trufflesuite/truffle 
   (※ npm install -g truffle로 설치하세요.)
+  
 - Ganache : http://truffleframework.com/ganache/
 - IDE: (eg. Intelij, Eclipse, WinStorm, Visual Studio etc.)
 - (Optional) IDE에 맞는 Solidity 플러그인 추가 

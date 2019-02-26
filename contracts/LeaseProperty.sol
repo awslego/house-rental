@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 contract LeaseProperty {
 
@@ -12,7 +12,7 @@ contract LeaseProperty {
     }
 
     // Retrieving the lessees
-    function getLessees() public view returns (address[16]) {
+    function getLessees() public view returns (address[16] memory) {
         return lessees;
     }
 }

@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
@@ -17,7 +17,7 @@ contract TestLeaseProperty {
     // Testing retrieval of a single property's owner
     function testGetLesseeAddressByPropertyId() public {
         // Expected owner is this contract
-        address expected = this;
+        address expected = address(this);
         address lessee = leaseProperty.lessees(8);
         Assert.equal(lessee, expected, "Owner of property ID 8 should be recorded.");
     }
@@ -25,7 +25,7 @@ contract TestLeaseProperty {
     // Testing retrieval of all lessors
     function testGetLesseeAddressByPropertyIdInArray() public {
         // Expected owner is this contract
-        address expected = this;
+        address expected = address(this);
         // Store lessees in memory rather than contract's storage
         address[16] memory lessees = leaseProperty.getLessees();
         Assert.equal(lessees[8], expected, "Owner of property ID 8 should be recorded.");
